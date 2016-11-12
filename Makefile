@@ -44,6 +44,9 @@ install_server:
 	
 install: install_browser install_server install_tagger
 	
+all: packages setup install
+
+
 remove:
 	rm -r /usr/share/dedalus
 	rm /usr/share/applications/dedalus-browser.desktop
