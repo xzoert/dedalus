@@ -4,12 +4,10 @@ packages:
 	sudo apt-get install -y nodejs	
 
 setup:
-	git clone https://github.com/xzoert/dedalus-tagger.git
-	git clone https://github.com/xzoert/dedalus-browser.git
-	git clone https://github.com/xzoert/dedalus-server.git
-	cd dedalus-server
-	npm install
-	cd ..
+	-git clone https://github.com/xzoert/dedalus-tagger.git
+	-git clone https://github.com/xzoert/dedalus-browser.git
+	-git clone https://github.com/xzoert/dedalus-server.git
+	cd dedalus-server; npm install
 	
 	
 install_browser:
