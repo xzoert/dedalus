@@ -31,16 +31,19 @@ install_tagger:
 	sudo cp dedalus-tagger/tagger_widget.py /usr/share/dedalus/dedalus-tagger/
 	sudo cp dedalus-tagger/dedalus-tagger /usr/bin/
 	sudo chmod a+x /usr/bin/dedalus-tagger
+	-mkdir ~/.local/share/file-manager
+	-mkdir ~/.local/share/file-manager/actions
 	cp dedalus-tagger/dedalus-action.desktop ~/.local/share/file-manager/actions/
 
 install_server:
 	-sudo mkdir /usr/share/dedalus
 	-sudo mkdir /usr/share/dedalus/dedalus-server
 	sudo cp dedalus-server/server.js /usr/share/dedalus/dedalus-server/
-	sudo cp -r dedalus-server/node_modules usr/share/dedalus/dedalus-server/
+	sudo cp -r dedalus-server/node_modules /usr/share/dedalus/dedalus-server/
 	sudo cp dedalus-server/dedalus-server /usr/bin/
-	sudo chmod a+x /usr/bin/dedalus-tagger
-	cp dedalus-server/dedalus-server.desktop ~/.conf/autostart/
+	sudo chmod a+x /usr/bin/dedalus-server
+	-mkdir ~/.config/autostart
+	cp dedalus-server/dedalus-server.desktop ~/.config/autostart/
 	
 install: install_browser install_server install_tagger
 	
