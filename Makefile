@@ -2,6 +2,7 @@ packages:
 	sudo apt-get install -y python3-pyside
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	sudo apt-get install -y nodejs	
+	sudo apt-get install -y nautilus-actions
 
 setup:
 	-git clone https://github.com/xzoert/dedalus-tagger.git
@@ -51,13 +52,13 @@ all: packages setup install
 
 
 remove:
-	rm -r /usr/share/dedalus
-	rm /usr/share/applications/dedalus-browser.desktop
-	rm /usr/share/icons/dedalus.svg
-	rm /usr/bin/dedalus-tagger
-	rm /usr/bin/dedalus-browser
-	rm /usr/bin/dedalus-server
-	rm ~/.conf/autostart/dedalus-server.desktop
-	rm ~/.local/share/file-manager/actions/dedalus-action.desktop
+	-sudo rm -rf /usr/share/dedalus
+	-sudo rm /usr/share/applications/dedalus-browser.desktop
+	-sudo rm /usr/share/icons/dedalus.svg
+	-sudo rm /usr/bin/dedalus-tagger
+	-sudo rm /usr/bin/dedalus-browser
+	-sudo rm /usr/bin/dedalus-server
+	-rm ~/.config/autostart/dedalus-server.desktop
+	-rm ~/.local/share/file-manager/actions/dedalus-action.desktop
 	
 
