@@ -1,7 +1,4 @@
-![dedalus](dedalus.png)
-
-Dedalus
-=======
+# ![dedalus](dedalus.png) Dedalus
 
 ## Overview
 Dedalus aims to be a system that helps you in organizing resources by tags.
