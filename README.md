@@ -21,8 +21,8 @@ a bunch of directories and sub-directories.
 Dedalus has three components: 
 
 - [dedalus-server](#dedalus-server): in *nodejs* + *sqlite3*
-- [dedalus-tagger](#dedalus-tagger): in *python* + *qt4*
-- [dedalus-browser](#dedalus-browser): in *python* + *qt4*
+- [dedalus-tagger](#dedalus-tagger): in *python3* + *qt4*
+- [dedalus-browser](#dedalus-browser): in *python3* + *qt4*
 
 ### <a name="dedalus-server"></a>dedalus-server
 
