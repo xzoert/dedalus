@@ -1,3 +1,5 @@
+![dedalus](dedalus.png)
+
 Dedalus
 =======
 
@@ -19,10 +21,17 @@ GUIs operate. It is written in nodejs, and largely based on a library called
 ### <a name="dedalus-tagger"></a>dedalus-tagger
 This is the GUI for tagging resources, with tag autocompletion, 
 multiple resources editing, and whose aim is to be as easy and handy to use as it can be. 
-The tagger can be invoked, for example, by a nautilus action allowing you to right-click
-on any file or directory and tagging it. 
+
+![dedalus-tagger](tagger-screenshot.png)
+
+
+The tagger can be invoked by right clicking on a file or directory 
+in your file manager (using [nautilus-actions](http://www.nautilus-actions.org/) for nautilus,
+configuring a *custom action* in thunar etc.).
 Also there is a nice [extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/open-with/) 
-that allows you easily to open the dedalus-tagger for tagging the current web page.
+that can easily be configured to open the dedalus-tagger for tagging the current web page.
+It is pretty easy as well to create an open/libre-office macro which opens the dedalus-tagger
+on the currently edited document.
 
 ### <a name="dedalus-browser"></a>dedalus-browser
 
