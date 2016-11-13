@@ -2,8 +2,13 @@
 
 ## Overview
 
-Dedalus aims to be a system that helps you in organizing resources by tags.
+Dedalus aims to be a system that allows you to organize resources by tags. 
 Resources can be documents on your hard disk, web resources, emails, personal contact etc.
+The purpose is to overcome the inherent limitations of simple structures like 
+lists or trees you have on your file system, browser bookmarks and so forth. 
+By using tags you can access the same resource through different paths, create dynamic
+sub-collections based on having (or *not* having) a set of tags, create a semantic network
+where tags are linked to each other. 
 
 Dedalus has three components: 
 
@@ -44,7 +49,7 @@ contextual to the current search criteria.
 
 
 ### State of the project
-Dedalus is at its very early stage of development. Anyone interested to contribute 
+Dedalus is at its very early stage of development. Anyone interested in contributing 
 is very welcome. 
 
 ## Installation
