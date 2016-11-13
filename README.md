@@ -77,15 +77,15 @@ please let me know!
 The first step is to clone the dedalus repository somewhere.
 
 ```
-	git clone https://github.com/xzoert/dedalus.git
+git clone https://github.com/xzoert/dedalus.git
 ```
 
 Then enter the dedalus directory, make and install:
 
 ```
-	cd dedalus
-	make
-	make install
+cd dedalus
+make
+make install
 ```
 
 
