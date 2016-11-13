@@ -58,7 +58,7 @@ contextual to the current search criteria.
 
 ### State of the project
 Dedalus is at its very early stage of development, but the main functionalities are 
-in place and the GUIs, though very simple, are in fact quite usable. There is no 
+in place and the GUIs, though very basic, are in fact quite usable. There is no 
 fancy installation process by now, just a makefile that works on my computer and should 
 work on recent ubuntu distros. I do not guarantee by now that future versions will be
 entirely compatible with the current one, but I'm pretty sure that any needed migration
