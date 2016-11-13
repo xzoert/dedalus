@@ -3,12 +3,20 @@
 ## Overview
 
 Dedalus aims to be a system that allows you to organize resources by tags. 
-Resources can be documents on your hard disk, web resources, emails, personal contact etc.
+Resources can be documents on your hard disk, web resources, emails, personal contacts etc.
+
 The purpose is to overcome the inherent limitations of simple structures like 
 lists or trees you have on your file system, browser bookmarks and so forth. 
 By using tags you can access the same resource through different paths, create dynamic
 sub-collections based on having (or *not* having) a set of tags, create a semantic network
-where tags are linked to each other. 
+where tags are linked to each other. All this should help you greatly in browsing and finding
+documents in large collections.
+
+I'm writing this trying to solve the problem of a friend of mine who is doing a Phd
+in antropology and who has lots of documents, interviews, pictures, web resoures and so 
+forth, whose conceptual classification requires definitely something more flexible than
+a bunch of directories and sub-directories. 
+
 
 Dedalus has three components: 
 
@@ -49,8 +57,16 @@ contextual to the current search criteria.
 
 
 ### State of the project
-Dedalus is at its very early stage of development. Anyone interested in contributing 
-is very welcome. 
+Dedalus is at its very early stage of development, but the main functionalities are 
+in place and the GUIs, though very simple, are in fact quite usable. There is no 
+fancy installation process by now, just a makefile that works on my computer and should 
+work on recent ubuntu distros. I do not guarantee by now that future versions will be
+entirely compatible with the current one, but I'm pretty sure that any needed migration
+wil be quite easy to perform, so you should feel free to experiment without being to
+much afraid of loosing you precious time in filling a database which will become unusable
+in a couple of months.
+
+Anyone interested in contributing is very welcome. 
 
 ## Installation
 
