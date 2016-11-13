@@ -64,7 +64,7 @@ work on recent ubuntu distros. I do not guarantee by now that future versions wi
 entirely compatible with the current one, but I'm pretty sure that any needed migration
 will be quite easy to perform.
 
-Anyone interested in contributing is very welcome. 
+Anyone interested in testig or contributing is very welcome. 
 
 ## Installation
 
