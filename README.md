@@ -1,6 +1,7 @@
 # ![dedalus](dedalus.png) Dedalus
 
 ## Overview
+
 Dedalus aims to be a system that helps you in organizing resources by tags.
 Resources can be documents on your hard disk, web resources, emails, personal contact etc.
 
@@ -11,16 +12,18 @@ Dedalus has three components:
 - [dedalus-browser](#dedalus-browser)
 
 ### <a name="dedalus-server"></a>dedalus-server
+
 This is the dedalus backend on top of which the 
 GUIs operate. It is written in nodejs, and largely based on a library called 
 [tagman](https://github.com/xzoert/tagman), which does most of the job. 
+Data are saved on an sqlite3 database, located at *~/.tagman/default.sql*.
 
 ### <a name="dedalus-tagger"></a>dedalus-tagger
+
 This is the GUI for tagging resources, with tag autocompletion, 
 multiple resources editing, and whose aim is to be as easy and handy to use as it can be. 
 
 ![dedalus-tagger](tagger-screenshot.png)
-
 
 The tagger can be invoked by right clicking on a file or directory 
 in your file manager (using [nautilus-actions](http://www.nautilus-actions.org/) for nautilus,
@@ -31,6 +34,14 @@ It is pretty easy as well to create an open/libre-office macro which opens the d
 on the currently edited document.
 
 ### <a name="dedalus-browser"></a>dedalus-browser
+
+The browser lets you navigate through the tagged resources. It creates a tag cloud
+contextual to the current search criteria.
+
+![dedalus-browser](browser-screenshot1.png)
+![dedalus-browser](browser-screenshot2.png)
+
+
 
 ### State of the project
 Dedalus is at its very early stage of development. Anyone interested to contribute 
