@@ -34,7 +34,7 @@ Data are saved on an sqlite3 database, located at *~/.tagman/default.sql*.
 ### <a name="dedalus-tagger"></a>dedalus-tagger
 
 This is the GUI for tagging resources, with tag autocompletion, 
-multiple resources editing, and whose aim is to be as easy and handy to use as it can be. 
+multiple resource editing, and whose aim is to be as easy and handy to use as it can be. 
 
 ![dedalus-tagger](tagger-screenshot.png)
 
@@ -62,21 +62,27 @@ in place and the GUIs, though very simple, are in fact quite usable. There is no
 fancy installation process by now, just a makefile that works on my computer and should 
 work on recent ubuntu distros. I do not guarantee by now that future versions will be
 entirely compatible with the current one, but I'm pretty sure that any needed migration
-wil be quite easy to perform, so you should feel free to experiment without being to
-much afraid of loosing you precious time in filling a database which will become unusable
-in a couple of months.
+will be quite easy to perform.
 
 Anyone interested in contributing is very welcome. 
 
 ## Installation
 
-The installation process is at its very first stages of development. It is currently tested
-on ubuntu 15.10 and 16.04, but is likely to work on 16.10 as well. You might want to 
-edit manually the Makefile in order to meet your system. If you do so successfully,
+The current Makefile has been tested on ubuntu 15.10 and 16.04, but is likely to work 
+on 16.10 as well. 
+
+You might want to edit manually the Makefile in order to meet your system. If you do so successfully,
 please let me know! 
 
 The first step is to clone the dedalus repository somewhere.
 
-```
+	```
 	git clone https://github.com/xzoert/dedalus.git
-```
+	```
+
+Then enter the dedalus directory by typing:
+
+	```
+	cd dedalus
+	```
+
