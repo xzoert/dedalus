@@ -7,16 +7,13 @@ Resources can be documents on your hard disk, web resources, emails, personal co
 
 The purpose is to overcome the inherent limitations of simple structures like 
 lists or trees you have on your file system, browser bookmarks and so forth. 
-By using tags you can access the same resource through different paths, create dynamic
-sub-collections based on having (or *not* having) a set of tags, create a semantic network
-where tags are linked to each other. All this should help you greatly in browsing and finding
-documents in large collections.
+By using tags you can access the same resource through different paths, create thematic
+sub-collections of heterogeneous resources based on having (or *not* having) a set of tags, 
+browse the semantic network across tags that builds up silenty while you work with it.
 
 I'm writing this trying to solve the problem of a friend of mine who is doing a Phd
-in antropology and who has lots of documents, interviews, pictures, web resoures and so 
-forth, whose conceptual classification requires definitely something more flexible than
-a bunch of directories and sub-directories. 
-
+in antropology. She has lots of documents, interviews, pictures, web resoures and so 
+forth, and desperately needs something to give a (non trivial) order to that chaos. 
 
 Dedalus has three components: 
 

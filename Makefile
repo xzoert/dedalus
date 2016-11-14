@@ -1,4 +1,21 @@
 
+
+help:
+	@echo ""
+	@echo "Usage: make [COMMAND]"
+	@echo ""
+	@echo "Where [COMMAND] can be one of the following: "
+	@echo ""
+	@echo "help                    Displays this help text"
+	@echo "dependencies            Installes needed packages, if not already installed."
+	@echo "setup                   Downloads and configures the sub-projects from git."
+	@echo "install                 Installs dedalus."
+	@echo "remove                  Removes a previous installation."
+	@echo "clean                   Removes the sub-projects (undoes 'setup')"
+	@echo ""
+	@echo "Giving no [COMMAND] is equivalent of doing 'make dependencies' followed by 'make setup'."
+	@echo ""
+
 all: dependencies setup
 
 
