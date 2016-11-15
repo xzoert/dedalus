@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="dedalus">
+    <file>assigned.svg</file>
+    <file>dedalus.svg</file>
+    <file>delete.svg</file>
+    <file>directory.svg</file>
+    <file>inherited.svg</file>
+    <file>not-assigned.svg</file>
+    <file>refresh.svg</file>
+    <file>tagger.svg</file>
+    <file>typedir.svg</file>
+    <file>typefile.svg</file>
+    <file>typeweb.svg</file>
+  </qresource>
+</RCC>

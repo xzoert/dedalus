@@ -1,3 +1,4 @@
+import dedalus.icons_rc as icons_rc
 from .Client import Client
 from .AsyncPost import AsyncPost
 from .Tag import Tag

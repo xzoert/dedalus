@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tagCloudTestWindow.ui'
 #
-# Created: Tue Nov 15 19:40:54 2016
+# Created: Wed Nov 16 00:27:28 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -38,3 +38,4 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
 
 from dedalus.ui.TagCloudView import TagCloudView
+from . import icons_rc
