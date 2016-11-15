@@ -80,6 +80,9 @@ install:
 	@mkdir -p ~/.config/autostart
 	@cp dedalus-server/dedalus-server.desktop ~/.config/autostart/
 
+	@# python package
+	@sudo python3 setup.py install --record installed_files.txt
+	
 	@printf "*** Dedalus has been successfully installed.\n\n"
 	
 clean:
@@ -99,6 +102,7 @@ remove:
 	@-sudo rm /usr/bin/dedalus-server
 	@-rm ~/.config/autostart/dedalus-server.desktop
 	@-rm ~/.local/share/file-manager/actions/dedalus-action.desktop
+	@cat installed_files.txt | sudo xargs rm -rf
 	@printf "*** Dedalus successfully removed.\n\n"
 
 

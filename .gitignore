@@ -1,0 +1,9 @@
+dist
+build
+dedalus-server
+dedalus-tagger
+dedalus-browser
+dedalus/**/__pycache__
+dedalus/.idea
+MANIFEST
+
