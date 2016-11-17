@@ -3,7 +3,7 @@ from PySide.QtGui import *
 from .taggerUi import Ui_MainWindow
 import sys
 from dedalus import *
-from dedalus.ui import ApplicationWindow
+from dedalus.ui import ApplicationWindow,AsyncReceiver
 
 
 
@@ -144,12 +144,6 @@ class AppMainWindow(ApplicationWindow,ResourceCollection):
 			self.ui.tagCloudView.resetTagCloud(msg['data'])
 		
 		
-class AsyncReceiver(QObject):
-	
-	received=Signal(dict)
-	
-	def callback(self,err,data):
-		self.received.emit({'data':data,'err':err})
 
 def run():
 	app = QApplication(sys.argv)

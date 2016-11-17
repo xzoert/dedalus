@@ -5,6 +5,7 @@ from .TagCloudScene import TagCloudScene
 from .SimpleResourceList import SimpleResourceList
 from .ResourceLabel import ResourceLabel
 from .ApplicationWindow import ApplicationWindow
+from .AsyncReceiver import AsyncReceiver
 from . import tagger
 
 
