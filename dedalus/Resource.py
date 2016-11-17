@@ -1,11 +1,17 @@
 from .Tagging import Tagging
 from .Tag import Tag
+from .TagFilter import TagFilter
 from .utils import *
 import urllib.parse, os
 
 
 
 class Resource:
+	
+	DIR=1
+	FILE=2
+	WEB=3
+	UNKNOWN=4
 	
 	def __init__(self,url=None,serverData=None):
 		
@@ -32,13 +38,13 @@ class Resource:
 		if not url:
 			raise Exception('Empty URL.')
 		if url[0]=='/':
-			self.url='file://'+urllib.parse.quote(self.url)
+			self.url='file://'+urllib.parse.quote(url)
 		else:
 			self.url=url
 		self.path=pathFromUrl(self.url)
 		
 	def setLabel(self,v):
-		if label!=v:
+		if self.label!=v:
 			self.label=v
 			self._saved=False
 		
@@ -47,17 +53,77 @@ class Resource:
 			self.description=v
 			self._saved=False
 		
-	def addTag(self,tagName):
-		tag=Tag(tagName)
+	def assign(self,tag):
+		if isinstance(tag, str):
+			tag=Tag(tag)
 		if tag.key in self.taggings:
-			self.taggings[tag.key].assign()
+			if self.taggings[tag.key].assign():
+				self._saved=False
 		else:
 			self.taggings[tag.key]=Tagging(self,tag)
-			
-	def removeTag(self,tag):
+			self._saved=False
+
+	
+	def unassign(self,tag):
+		if isinstance(tag, str):
+			tag=Tag(tag)
 		if tag.key in self.taggings:
-			self.taggings[tag.key].unassign()
+			if self.taggings[tag.key].unassign():
+				self._saved=False
+
+
+	def getType(self):
+		if self.url[:7]=='file://':
+			if self.isdir is None:
+				fp=self.filePath()
+				if fp and os.path.isdir(fp):
+					return self.DIR
+				else:
+					return self.FILE
+			elif self.isdir:
+				return self.DIR
+			else:
+				return self.FILE
+		elif self.url[:7]=='http://' or self.url[:8]=='https://':
+			return self.WEB
+		else:
+			return self.UNKNOWN
+				
+	def setComment(self,tag,comment):
+		self.getTagging(tag).comment=comment
+
+	def getTagging(self,tag):
+		if isinstance(tag, str):
+			tag=Tag(tag)
+		if tag.key in self.taggings:
+			return self.taggings[tag.key]
+		else:
+			return Tagging(self,tag,state=Tag.NOT_ASSIGNED)
+	
+	def renameTag(self,tag,newTag):
+		if isinstance(tag,str):
+			tag=Tag(tag)
+		if isinstance(newTag,str):
+			newTag=Tag(newTag)
+		if tag.key in self.taggings:
+			t=self.taggings[tag.key]
+			del self.taggings[tag.key]
+			t.tag=newTag
+			self.taggings[newTag.key]=t
+	
+	def getTags(self):
+		tags=[]
+		for key in self.taggings:
+			t=self.taggings[key]
+			if t.state==Tag.ASSIGNED or t.state==Tag.INHERITED:
+				tags.append(t.tag.name)
+		return tags
+	
 		
+		
+		
+
+
 	def setServerData(self,data):
 		self.url=data['_url']
 		self.path=pathFromUrl(self.url)
@@ -70,15 +136,31 @@ class Resource:
 			for tagData in data['_tags']:
 				tagging=Tagging(self,serverData=tagData)
 				self.taggings[tagging.tag.key]=tagging
-		self._saved=True
+		if 'template' in data and data['template']:
+			self._saved=False
+		else:
+			self._saved=True
 		
+	def isSaved(self):
+		return self._saved
 		
 	def filePath(self):
 		if self.url[:7]=='file://':
 			return urllib.parse.unquote(self.url[7:])
 		
+	def exists(self):
+		fp=self.filePath()
+		if fp and not os.path.exists(fp):
+			return False
+		return True
 		
-		
+	def getTaggings(self):
+		res=[]
+		for key in self.taggings:
+			t=self.taggings[key]
+			if t.state!=Tag.NOT_ASSIGNED:
+				res.append(t)
+		return res
 		
 	def getServerData(self):
 		if self.isdir is None:

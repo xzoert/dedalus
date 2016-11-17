@@ -32,18 +32,27 @@ class Client:
 		return self.post('/clear/',{})
 	
 	
+	def getSuggestions(self,prefix,limit=20,exclude=[],minWeight=0,timeout=2.0,callback=None,async=False):
+		data={'prefix':prefix,'limit':limit,'exclude':exclude}
+		return self.call('/suggestions/',data,timeout,async,callback,SuggestionDelegate)
+		
+	
 	def getResource(self,url,timeout=2.0):
-		data=self.post('/resource/',{'url':url},timeout)
+		res=Resource(url)
+		data=self.post('/resource/',{'url':res.url},timeout)
+		if not data:
+			return res
 		return Resource(serverData=data)
 		
 	
-	def getTagCloud(self,tagFilter=None,limit=40,timeout=2.0,async=False,callback=None):
+	def getTagCloud(self,tagFilter=None,limit=40,useOr=False,timeout=2.0,async=False,callback=None):
 		data={}
 		if tagFilter:
 			data['tags']=tagFilter.getServerData()
 		data['tagCloud']=True
 		data['resourceList']=False
 		data['tagCloudLimit']=limit
+		data['tagCloudUseOr']=useOr
 		
 		return self.call('/find/',data,timeout,async,callback,TagCloudDelegate)
 		
@@ -108,3 +117,10 @@ class ResourceListDelegate(CallDelegate):
 			out.append(Resource(serverData=data))
 		return out
 
+class SuggestionDelegate(CallDelegate):
+	
+	def process(self,data):
+		r=[]
+		for item in data:
+			r.append(item[0])
+		return r

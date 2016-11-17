@@ -13,8 +13,12 @@ class TagCloud:
 				minw=tag.weight
 			if maxw is None or tag.weight>maxw:
 				maxw=tag.weight
-		self.maxw=maxw+0.5
-		self.minw=minw-0.5
+		if maxw is not None:
+			self.maxw=maxw+0.5
+			self.minw=minw-0.5
+		else:
+			self.maxw=0
+			self.minw=0
 
 	def getTags(self):
 		return self.tags

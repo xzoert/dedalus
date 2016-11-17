@@ -12,6 +12,8 @@ class TagCloudScene(QGraphicsScene):
 		QGraphicsScene.__init__(self)
 		self.cloud=None
 		self.resCount=None
+		self.showWeight=False
+		self.colored=False
 	
 	
 	def mousePressEvent(self,e):
@@ -23,7 +25,7 @@ class TagCloudScene(QGraphicsScene):
 				v=1
 			self.tagClicked.emit(i.toPlainText(),v)
 
-	def reset(self,tagCloud,resCount=None):
+	def resetTagCloud(self,tagCloud,resCount=None):
 		self.cloud=tagCloud
 		self.resCount=resCount
 		
@@ -54,8 +56,9 @@ class TagCloudScene(QGraphicsScene):
 			font=QFont('Sans',8.0+10.0*rw)
 			text.setFont(font)
 			text.setCursor(Qt.PointingHandCursor)
-			text.setToolTip(str(tag.weight))
-			if self.resCount is not None and tag.weight>=resCount:
+			if self.showWeight:
+				text.setToolTip(str(tag.weight))
+			if not self.colored or (self.resCount is not None and tag.weight>=resCount):
 				red=100
 				green=100
 				blue=100

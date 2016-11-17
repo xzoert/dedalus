@@ -1,6 +1,25 @@
+UI_SRC = qt-designer/tagCloudTestWindow.ui  qt-designer/tagger.ui
+ICON_SRC = `ls icons/*.svg`
 
 
-help:
+build_ui: $(UI_SRC)
+
+build_icons: $(ICON_SRC)
+	cd qt-designer; ./make.sh
+	cd icons; ./make.sh
+
+.PHONY : build
+build: build_ui build_icons
+	
+install: build
+	@sudo python3 setup.py install --record installed_files.txt
+
+remove:
+	@cat installed_files.txt | sudo xargs rm -rf
+
+
+
+helpold:
 	@echo ""
 	@echo "Usage: make [COMMAND]"
 	@echo ""
@@ -16,7 +35,6 @@ help:
 	@echo "Giving no [COMMAND] is equivalent of doing 'make dependencies' followed by 'make setup'."
 	@echo ""
 
-all: dependencies setup
 
 
 dependencies:
@@ -41,8 +59,10 @@ setup:
 	fi
 	@printf "*** Sub-repositories ok.\n\n"
 
+	
 
-install: 
+
+install_old: 
 	@printf "\n*** Installing dedalus...\n"
 	
 	@# dedalus dirs
@@ -80,19 +100,17 @@ install:
 	@mkdir -p ~/.config/autostart
 	@cp dedalus-server/dedalus-server.desktop ~/.config/autostart/
 
-	@# python package
-	@sudo python3 setup.py install --record installed_files.txt
 	
 	@printf "*** Dedalus has been successfully installed.\n\n"
 	
-clean:
+clean_old:
 	@printf "\n*** Cleaning up sub-repositories.\n"
 	@-rm -rf dedalus-server
 	@-rm -rf dedalus-browser
 	@-rm -rf dedalus-tagger
 	@printf "*** Sub-directories cleaned up. You will have to run \"make setup\" for a fresh restore\n\n"
 
-remove:
+remove_old:
 	@printf "\n*** Removing dedalus\n"
 	@-sudo rm -rf /usr/share/dedalus
 	@-sudo rm /usr/share/applications/dedalus-browser.desktop
@@ -102,7 +120,6 @@ remove:
 	@-sudo rm /usr/bin/dedalus-server
 	@-rm ~/.config/autostart/dedalus-server.desktop
 	@-rm ~/.local/share/file-manager/actions/dedalus-action.desktop
-	@cat installed_files.txt | sudo xargs rm -rf
 	@printf "*** Dedalus successfully removed.\n\n"
 
 

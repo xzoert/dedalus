@@ -14,21 +14,24 @@ class AppMainWindow(QMainWindow):
 def tagClicked(n,v):
 	print('Tag clicked',n,v)
 
-app = QApplication(sys.argv)
-ui = Ui_MainWindow()
-mainWindow = AppMainWindow()
-ui.setupUi(mainWindow)
+def run():
+	app = QApplication(sys.argv)
+	ui = Ui_MainWindow()
+	mainWindow = AppMainWindow()
+	ui.setupUi(mainWindow)
+	
+	
+	
+	mainWindow.show()
+	
+	c=Client()
+	ui.tagCloudView.resetTagCloud(c.getTagCloud())
+	ui.tagCloudView.tagClicked.connect(tagClicked)
+	
+	app.exec_()
+	sys.exit()
 
-
-
-mainWindow.show()
-
-c=Client()
-ui.tagCloudView.reset(c.getTagCloud())
-ui.tagCloudView.tagClicked.connect(tagClicked)
-
-app.exec_()
-sys.exit()
-
+if __name__ == "__main__":
+	run()
 
 

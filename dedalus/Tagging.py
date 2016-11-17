@@ -34,12 +34,12 @@ class Tagging:
 	def assign(self):
 		if self.state!=Tag.ASSIGNED:
 			self.state=Tag.ASSIGNED
-			self.resource._saved=False
+			return True
 		
 	def unassign(self):
 		if self.state!=Tag.NOT_ASSIGNED:
 			self.state=Tag.NOT_ASSIGNED
-			self.resource._saved=False
+			return True
 		
 	
 

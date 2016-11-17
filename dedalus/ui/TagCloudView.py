@@ -13,13 +13,17 @@ class TagCloudView(QGraphicsView):
 		self.hscale=1.0
 		self.vscale=1.0
 		self.scene.tagClicked.connect(self.routeTagClicked)
+		self.maxScale=None
+		
+	def setMaxScale(self,n):
+		self.maxScale=n
 
 	def routeTagClicked(self,tag,v):
 		self.tagClicked.emit(tag,v)
 
 
-	def reset(self,tagCloud,resNum=None):
-		self.scene.reset(tagCloud,resNum)
+	def resetTagCloud(self,tagCloud,resNum=None):
+		self.scene.resetTagCloud(tagCloud,resNum)
 		self.render()
 		
 	def resizeEvent(self,e):
@@ -35,6 +39,8 @@ class TagCloudView(QGraphicsView):
 				scale=hscale
 			else:
 				scale=vscale
+			if self.maxScale and scale>self.maxScale:
+				scale=self.maxScale
 			self.setScale(scale,scale)
 			self.setSceneRect(rect)
 		
