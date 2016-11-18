@@ -10,4 +10,14 @@ taggerUi.py: taggerUi.ui
 
 
 
+install: all
+	cp dedalus-tagger /usr/bin
+	chmod a+x /usr/bin/dedalus-tagger
+
+remove:
+	-rm /usr/bin/dedalus-tagger
+
+clean:
+	-rm taggerUi.py
+
 

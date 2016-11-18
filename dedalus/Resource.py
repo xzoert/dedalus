@@ -107,11 +107,14 @@ class Resource:
 			newTag=Tag(newTag)
 		if tag.name==newTag.name:
 			return
+		if newTag.key in self.taggings:
+			raise Exception('Merge not yet supported')
 		if tag.key in self.taggings:
 			t=self.taggings[tag.key]
 			del self.taggings[tag.key]
 			t.tag=newTag
 			self.taggings[newTag.key]=t
+			self._saved=False
 	
 	def getTags(self):
 		tags=[]

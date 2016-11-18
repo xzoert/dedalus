@@ -15,7 +15,7 @@ class TaggerTableModel(QAbstractTableModel):
 	InheritedFont.setItalic(True)
 	NormalFont=QFont()
 	AllFont=QFont()
-	AllFont.setPointSizeF(AllFont.pointSizeF()*0.7)
+	AllFont.setPointSizeF(AllFont.pointSizeF()*0.6)
 	
 	COL_TAG=2
 	COL_COMMENT=3
@@ -29,6 +29,7 @@ class TaggerTableModel(QAbstractTableModel):
 		self.collection=None
 		self.lastSuggestions=None
 		self.res=None
+		self.indexToEdit=None
 		self.view.clicked.connect(self.itemClicked)
 		
 	
@@ -170,12 +171,12 @@ class TaggerTableModel(QAbstractTableModel):
 						if self.collection.getOccurrences(tag)==self.collection.getResourceCount():
 							return '*'
 						else:
-							return 'ALL'
+							return 'TO\nALL'
 					else:
 						if self.collection.getOccurrences(tag)==0:
 							return '*'
 						else:
-							return 'ALL'
+							return 'TO\nALL'
 			elif role==Qt.TextAlignmentRole:
 				return Qt.AlignCenter
 			elif role == Qt.FontRole: 
@@ -187,6 +188,11 @@ class TaggerTableModel(QAbstractTableModel):
 		idx=self.index(len(tags),self.COL_TAG)
 		self.view.edit(idx)
 		self.view.scrollTo(idx)
+		
+	def deferredEdit(self):
+		if self.indexToEdit:
+			self.view.edit(self.indexToEdit)
+			self.indexToEdit=None
 
 	def setData(self,index,value,role):
 		if role==Qt.EditRole:
@@ -196,16 +202,21 @@ class TaggerTableModel(QAbstractTableModel):
 				if value=='':
 					return False
 				if index.row()==len(tags):
-					self.beginInsertRows(QModelIndex(),len(tags),len(tags))
+					#self.beginInsertRows(QModelIndex(),len(tags),len(tags))
 					isNew=True
 					if self.lastSuggestions and value in self.lastSuggestions:
 						isNew=False
 					self.collection.addTag(value,isNew)
 					self.collection.assign(self.res,value)
-					self.endInsertRows()
-					QTimer.singleShot(200,self.editLastRow)
+					self.refresh()
+					#self.endInsertRows()
+					QTimer.singleShot(100,self.editLastRow)
 					#self.view.edit(self.index(len(tags),self.COL_TAG))
 				else:
+					if self.collection.hasTag(value):
+						self.indexToEdit=index
+						QTimer.singleShot(100,self.deferredEdit)
+						return False
 					self.collection.renameTag(tags[index.row()],value)
 					self.refresh()
 			elif index.column()==self.COL_COMMENT:
@@ -262,5 +273,4 @@ class TaggerTableModel(QAbstractTableModel):
 			
 		return QAbstractTableModel.flags(self,idx)
 	
-
 

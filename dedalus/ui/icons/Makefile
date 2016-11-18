@@ -16,3 +16,14 @@ all: icons_rc.py
 
 icons_rc.py: $(ICONS) icons.qrc
 	$(RCC) -o icons_rc.py icons.qrc
+	
+	
+install: all
+	cp dedalus.svg /usr/share/icons
+
+remove:
+
+clean:
+	-rm icons_rc.py
+	-rm /usr/share/icons/dedalus.svg
+

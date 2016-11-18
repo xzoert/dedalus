@@ -6,4 +6,6 @@ dedalus-browser
 dedalus/**/__pycache__
 dedalus/.idea
 MANIFEST
+Makefile.old
+server/npm-debug.log
 

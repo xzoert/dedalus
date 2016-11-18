@@ -9,6 +9,12 @@ tagCloudTestWindow.py: tagCloudTestWindow.ui
 	$(UIC) tagCloudTestWindow.ui -o $@
 
 	
+install: all
+
+remove:
+
+clean:
+
 
 
 

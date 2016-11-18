@@ -7,7 +7,7 @@ class Tag:
 	
 	def __init__(self,name):
 		self.name=name.strip()
-		self.key=name.lower()
+		self.key=name
 		
 
 	def __hash__(self):

@@ -19,10 +19,9 @@ class ResourceCollection:
 		exclude=[]
 		i=0
 		for tag in self.tags:
-			if i==curTagIdx:
-				continue
+			if i!=curTagIdx:
+				exclude.append(tag.name)
 			i=i+1
-			exclude.append(tag.name)
 		return self.client.getSuggestions(prefix, limit=limit, exclude=exclude)
 		
 
@@ -77,6 +76,8 @@ class ResourceCollection:
 			newTag=Tag(newTag)
 		if tag.name==newTag.name:
 			return
+		if self.hasTag(newTag):
+			raise Exception('Merge not yet supported')
 		if tag.key in self.tagMeta:
 			tmeta=self.tagMeta[tag.key]
 			del self.tagMeta[tag.key]
@@ -88,6 +89,7 @@ class ResourceCollection:
 			if t.key==tag.key:
 				t.name=newTag.name
 				t.key=newTag.key
+				
 			
 	def getOccurrences(self,tag):
 		if tag.key not in self.tagMeta:
@@ -104,7 +106,13 @@ class ResourceCollection:
 		if tag.key not in self.tagMeta:
 			self.tagMeta[tag.key]=self.TagMeta(tag,isNew)
 			self.tags.append(tag)
-			
+	
+	def hasTag(self,tag):
+		if isinstance(tag,str):
+			tag=Tag(tag)
+		return tag.name in self.tagMeta
+		
+	
 	def assign(self,res,tag):
 		if isinstance(tag,str):
 			tag=Tag(tag)

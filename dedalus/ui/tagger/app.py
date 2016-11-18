@@ -157,6 +157,9 @@ class AppMainWindow(ApplicationWindow,ResourceCollection):
 		
 
 def run():
+	if len(sys.argv)<2:
+		print('No url provided, exiting.')
+		return
 	app = QApplication(sys.argv)
 	ui = Ui_MainWindow()
 	mainWindow = AppMainWindow(ui)

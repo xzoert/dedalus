@@ -5,7 +5,15 @@ all: $(SUBDIRS)
 
 
 $(SUBDIRS):
-	$(MAKE) -C $@
+	$(MAKE) -C $@ $(MAKECMDGOALS)
+	
+	
+install: all $(SUBDIRS)
+
+remove: $(SUBDIRS)
+
+clean: $(SUBDIRS)
+
 
 
 

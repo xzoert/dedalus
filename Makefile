@@ -1,41 +1,25 @@
-UI_SRC = qt-designer/tagCloudTestWindow.ui  qt-designer/tagger.ui
-ICON_SRC = `ls icons/*.svg`
+SUBDIRS 	= server dedalus
+
+.PHONY: all $(SUBDIRS)
+all: $(SUBDIRS)
+
+$(SUBDIRS):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
 
-build_ui: $(UI_SRC)
-
-build_icons: $(ICON_SRC)
-	cd qt-designer; ./make.sh
-	cd icons; ./make.sh
-
-.PHONY : build
-build: build_ui build_icons
 	
-install: build
-	@sudo python3 setup.py install --record installed_files.txt
+install: all $(SUBDIRS)
+	python3 setup.py install --record installed_files.txt
 
-remove:
-	@cat installed_files.txt | sudo xargs rm -rf
+remove: $(SUBDIRS)
+	cat installed_files.txt | sudo xargs rm -rf
 
-
-
-helpold:
-	@echo ""
-	@echo "Usage: make [COMMAND]"
-	@echo ""
-	@echo "Where [COMMAND] can be one of the following: "
-	@echo ""
-	@echo "help                    Displays this help text"
-	@echo "dependencies            Installes needed packages, if not already installed."
-	@echo "setup                   Downloads and configures the sub-projects from git."
-	@echo "install                 Installs dedalus."
-	@echo "remove                  Removes a previous installation."
-	@echo "clean                   Removes the sub-projects (undoes 'setup')"
-	@echo ""
-	@echo "Giving no [COMMAND] is equivalent of doing 'make dependencies' followed by 'make setup'."
-	@echo ""
+clean: $(SUBDIRS)
 
 
+
+
+	
 
 dependencies:
 	@printf "\n*** Checking dependencies.\n"
@@ -49,7 +33,7 @@ dependencies:
 	@if [ ! "`dpkg -l nautilus-actions`" ]; then sudo apt-get install -y nautilus-actions; fi
 	@printf "*** Dependencies ok.\n\n"
 
-setup:
+setup_old:
 	@printf "\n*** Setting up sub-repositories.\n"
 	@if [ ! -d "dedalus-tagger" ]; then git clone https://github.com/xzoert/dedalus-tagger.git; fi
 	@if [ ! -d "dedalus-browser" ]; then git clone https://github.com/xzoert/dedalus-browser.git; fi

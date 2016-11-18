@@ -15,7 +15,7 @@ setup(
     author_email="xzoert@gmail.com",
 
     # Packages
-    packages=["dedalus","dedalus.test","dedalus.ui","dedalus.ui.test"],
+    packages=["dedalus","dedalus.test","dedalus.ui","dedalus.ui.test","dedalus.ui.icons","dedalus.ui.tagger"],
 
     # Details
     url="",

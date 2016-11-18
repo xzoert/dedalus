@@ -16,6 +16,8 @@ class ApplicationWindow(QMainWindow):
 		dedalus.utils.savePrefs(self.name,self.prefs)
 
 	def resizeEvent(self,e):
+		if not self.geometryInitialized:
+			return
 		if self.isMaximized():
 			self.prefs['maximized']=True
 		else:
