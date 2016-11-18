@@ -22,8 +22,8 @@ install: all
 	cp dedalus.svg /usr/share/icons
 
 remove:
+	-rm /usr/share/icons/dedalus.svg
 
 clean:
 	-rm icons_rc.py
-	-rm /usr/share/icons/dedalus.svg
 
