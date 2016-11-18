@@ -48,6 +48,18 @@ class AppMainWindow(ApplicationWindow,ResourceCollection):
 		res=ResourceCollection.addResource(self,url)
 		self.ui.resourceList.addResource(res)
 		self.tagsSorted=False
+		if self.getResourceCount()==1:
+			self.ui.splitter.setSizes((0,1000))
+			self.ui.tableView.hideAllColumn()
+		else:
+			if 'splitter' in self.prefs:
+				splitterSizes=self.prefs['splitter']
+				self.ui.splitter.setSizes((splitterSizes[0],splitterSizes[1]))
+			else:
+				self.ui.splitter.setSizes((140,1000))
+			self.ui.tableView.showAllColumn()
+			
+			
 		return res
 		
 	def renameTag(self,tag,newTag):
@@ -59,9 +71,6 @@ class AppMainWindow(ApplicationWindow,ResourceCollection):
 		
 		self.ui.splitter.setStretchFactor(0,0)
 		self.ui.splitter.setStretchFactor(1,1)
-		if 'splitter' in self.prefs:
-			splitterSizes=self.prefs['splitter']
-			self.ui.splitter.setSizes((splitterSizes[0],splitterSizes[1]))
 		if 'tagWidth' in self.prefs:
 			self.ui.tableView.setTagColumnWidth(self.prefs['tagWidth'])
 		else:
@@ -92,7 +101,9 @@ class AppMainWindow(ApplicationWindow,ResourceCollection):
 		self.saveInnerGeometry()
 		
 	def saveInnerGeometry(self):
-		self.prefs['splitter']=self.ui.splitter.sizes()
+		ssizes=self.ui.splitter.sizes()
+		if ssizes[0]!=0:
+			self.prefs['splitter']=self.ui.splitter.sizes()
 		self.prefs['tagWidth']=self.ui.tableView.getTagColumnWidth()
 		self.savePrefs()
 

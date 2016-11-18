@@ -43,9 +43,10 @@ class ResourceCollection:
 			if t.tag.key not in self.tagMeta:
 				tc=self.TagMeta(t.tag)
 				self.tagMeta[t.tag.key]=tc
-				tc.incr()
+				if t.state==Tag.ASSIGNED:
+					tc.incr()
 				self.tags.append(t.tag)
-			else:
+			elif t.state==Tag.ASSIGNED:
 				self.tagMeta[t.tag.key].incr()
 		return res
 				
@@ -56,7 +57,8 @@ class ResourceCollection:
 			res=self.resources[res.path]
 			tt=res.getTaggings()
 			for t in tt:
-				self.tagCountes[t.tag.key].decr()
+				if t.state==Tag.ASSIGNED:
+					self.tagCountes[t.tag.key].decr()
 			del self.resources[res.path]
 			self.resourceDeleted(res)
 				
@@ -73,6 +75,8 @@ class ResourceCollection:
 			tag=Tag(tag)
 		if isinstance(newTag,str):
 			newTag=Tag(newTag)
+		if tag.name==newTag.name:
+			return
 		if tag.key in self.tagMeta:
 			tmeta=self.tagMeta[tag.key]
 			del self.tagMeta[tag.key]
@@ -107,7 +111,7 @@ class ResourceCollection:
 		if tag.key not in self.tagMeta:
 			self.addTag(tag)
 		t=res.getTagging(tag)
-		if t.state==Tag.NOT_ASSIGNED:
+		if t.state!=Tag.ASSIGNED:
 			self.tagMeta[tag.key].incr()
 		res.assign(tag)
 			

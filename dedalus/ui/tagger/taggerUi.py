@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'taggerUi.ui'
 #
-# Created: Thu Nov 17 20:37:41 2016
+# Created: Thu Nov 17 23:26:08 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -144,9 +144,7 @@ class Ui_MainWindow(object):
         self.cancelButton.setMinimumSize(QtCore.QSize(120, 40))
         self.cancelButton.setMaximumSize(QtCore.QSize(120, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(17)
-        font.setWeight(75)
-        font.setBold(True)
+        font.setPointSize(13)
         self.cancelButton.setFont(font)
         self.cancelButton.setAutoFillBackground(False)
         self.cancelButton.setStyleSheet("")
@@ -158,7 +156,7 @@ class Ui_MainWindow(object):
         self.okButton.setMinimumSize(QtCore.QSize(50, 40))
         self.okButton.setMaximumSize(QtCore.QSize(120, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(17)
+        font.setPointSize(13)
         font.setWeight(75)
         font.setBold(True)
         self.okButton.setFont(font)

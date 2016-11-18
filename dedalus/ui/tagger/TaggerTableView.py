@@ -10,7 +10,7 @@ class TaggerTableView(QTableView):
 		self.tableModel=TaggerTableModel(self)
 		self.setModel(self.tableModel)
 		self.setColumnWidth(self.tableModel.COL_STATE,24)
-		self.setColumnWidth(self.tableModel.COL_ALL,32)
+		self.setColumnWidth(self.tableModel.COL_ALL,28)
 		self.horizontalHeader().setStretchLastSection(True)
 		
 	def setCollection(self,collection):
@@ -27,3 +27,10 @@ class TaggerTableView(QTableView):
 		
 	def refresh(self):
 		self.tableModel.refresh()
+		
+	def hideAllColumn(self):
+		self.setColumnHidden(self.tableModel.COL_ALL,True)
+		
+	def showAllColumn(self):
+		self.setColumnHidden(self.tableModel.COL_ALL,False)		
+

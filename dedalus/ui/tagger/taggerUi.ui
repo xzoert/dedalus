@@ -309,9 +309,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
+           <pointsize>13</pointsize>
           </font>
          </property>
          <property name="autoFillBackground">
@@ -354,7 +352,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>17</pointsize>
+           <pointsize>13</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>

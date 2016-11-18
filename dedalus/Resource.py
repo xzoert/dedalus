@@ -105,6 +105,8 @@ class Resource:
 			tag=Tag(tag)
 		if isinstance(newTag,str):
 			newTag=Tag(newTag)
+		if tag.name==newTag.name:
+			return
 		if tag.key in self.taggings:
 			t=self.taggings[tag.key]
 			del self.taggings[tag.key]

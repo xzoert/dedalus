@@ -37,8 +37,11 @@ class Tagging:
 			return True
 		
 	def unassign(self):
-		if self.state!=Tag.NOT_ASSIGNED:
-			self.state=Tag.NOT_ASSIGNED
+		if self.state==Tag.ASSIGNED:
+			if self.inheritedFrom:
+				self.state=Tag.INHERITED
+			else:
+				self.state=Tag.NOT_ASSIGNED
 			return True
 		
 	

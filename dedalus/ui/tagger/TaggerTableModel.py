@@ -14,6 +14,8 @@ class TaggerTableModel(QAbstractTableModel):
 	InheritedFont=QFont()
 	InheritedFont.setItalic(True)
 	NormalFont=QFont()
+	AllFont=QFont()
+	AllFont.setPointSizeF(AllFont.pointSizeF()*0.7)
 	
 	COL_TAG=2
 	COL_COMMENT=3
@@ -176,6 +178,8 @@ class TaggerTableModel(QAbstractTableModel):
 							return 'ALL'
 			elif role==Qt.TextAlignmentRole:
 				return Qt.AlignCenter
+			elif role == Qt.FontRole: 
+				return self.AllFont
 
 
 	def editLastRow(self):
