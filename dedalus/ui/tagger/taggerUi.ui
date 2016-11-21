@@ -159,11 +159,11 @@
             <widget class="ResourceLabel" name="urlLabel">
              <property name="font">
               <font>
-               <italic>true</italic>
+               <italic>false</italic>
               </font>
              </property>
              <property name="text">
-              <string>file:///questo/e/quello.pdf</string>
+              <string/>
              </property>
             </widget>
            </item>

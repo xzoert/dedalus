@@ -6,6 +6,11 @@ from .SimpleResourceList import SimpleResourceList
 from .ResourceLabel import ResourceLabel
 from .ApplicationWindow import ApplicationWindow
 from .AsyncReceiver import AsyncReceiver
+from . import background
+from . import requests
 from . import tagger
+from .TagFilterModel import TagFilterModel
+from .TagEntry import TagEntry
+from .ResourceListModel import ResourceListModel
 
 

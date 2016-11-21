@@ -32,20 +32,31 @@ class Client:
 		return self.post('/clear/',{})
 	
 	
-	def getSuggestions(self,prefix,limit=20,exclude=[],minWeight=0,timeout=2.0,callback=None,async=False):
+	def getSuggestions(self,prefix,limit=20,exclude=[],minWeight=0,timeout=5.0,callback=None,async=False):
 		data={'prefix':prefix,'limit':limit,'exclude':exclude}
 		return self.call('/suggestions/',data,timeout,async,callback,SuggestionDelegate)
 		
 	
-	def getResource(self,url,timeout=2.0):
+	def removeResource(self,url):
+		return self.post('/remove/',{'url':url},2.0)
+		
+	def removeUrlList(self,urlList):
+		return self.post('/removeList/',urlList,2.0)
+	
+	def getResource(self,url,timeout=5.0,async=False,callback=None):
 		res=Resource(url)
-		data=self.post('/resource/',{'url':res.url},timeout)
-		if not data:
-			return res
-		return Resource(serverData=data)
+		data={'url':res.url}
+		return self.call('/resource/',data,timeout,async,callback,ResourceDelegate)
+		
+	def getUrlList(self,urlList,timeout=5.0):
+		result=self.post('/urls/',urlList,timeout)
+		resList=[]
+		for data in result:
+			resList.append(Resource(serverData=data))
+		return resList
 		
 	
-	def getTagCloud(self,tagFilter=None,limit=40,useOr=False,timeout=2.0,async=False,callback=None):
+	def getTagCloud(self,tagFilter=None,limit=40,useOr=False,timeout=5.0,async=False,callback=None):
 		data={}
 		if tagFilter:
 			data['tags']=tagFilter.getServerData()
@@ -70,8 +81,12 @@ class Client:
 
 	def saveResource(self,res,timeout=2.0,async=False,callback=None):
 		return self.saveResources([res],timeout,async,callback)
+		
+	def renameResource(self,url,newUrl,renameDescendants=True,timeout=2.0):
+		data=self.post('/rename/',{'url':url,'newUrl':newUrl,'renameDescendants':renameDescendants})
+		return Resource(serverData=data)
     
-	def getResources(self,tagFilter=None,limit=100000,orderBy='label',offset=0,timeout=2.0,async=False,callback=None):
+	def getResources(self,tagFilter=None,limit=100000,orderBy='label',offset=0,timeout=5.0,async=False,callback=None):
 		data={}
 		if tagFilter:
 			data['tags']=tagFilter.getServerData()
@@ -82,7 +97,7 @@ class Client:
 		data['orderBy']=orderBy
 		return self.call('/find/',data,timeout,async,callback,ResourceListDelegate)
     
-	def post(self,addr,data,to=2.0):
+	def post(self,addr,data,to=5.0):
 		body=json.dumps(data).encode('utf-8')
 		addr=self.baseUrl+addr
 		conn = urllib.request.urlopen(addr,body,timeout=to)
@@ -124,3 +139,9 @@ class SuggestionDelegate(CallDelegate):
 		for item in data:
 			r.append(item[0])
 		return r
+		
+class ResourceDelegate(CallDelegate):
+	
+	def process(self,data):
+		return Resource(serverData=data)
+		

@@ -134,14 +134,14 @@ class Resource:
 		self.path=pathFromUrl(self.url)
 		if 'label' in data: self.label=data['label']
 		if 'description' in data: self.description=data['description'] 
-		if 'modified_at' in data: self.modifiedAt=data['modified_at']/1000.0
-		if 'created_at' in data: self.createdAt=data['created_at']/1000.0
+		if '_modified_at' in data: self.modifiedAt=data['_modified_at']/1000.0
+		if '_created_at' in data: self.createdAt=data['_created_at']/1000.0
 		if 'isdir' in data: self.isdir=data['isdir']
 		if '_tags' in data:
 			for tagData in data['_tags']:
 				tagging=Tagging(self,serverData=tagData)
 				self.taggings[tagging.tag.key]=tagging
-		if 'template' in data and data['template']:
+		if '_template' in data and data['_template']:
 			self._saved=False
 		else:
 			self._saved=True
@@ -152,7 +152,20 @@ class Resource:
 	def filePath(self):
 		if self.url[:7]=='file://':
 			return urllib.parse.unquote(self.url[7:])
-		
+			
+	def fileName(self):
+		return urllib.parse.unquote(self.path.split('/')[-2])
+
+	def parentDirectory(self):
+		if self.url[:7]=='file://':
+			steps=urllib.parse.unquote(self.url[7:]).split('/')
+			if steps[-1]=='':
+				steps=steps[:-2]
+			else:
+				steps=steps[:-1]
+			d='/'.join(steps)
+			return d
+
 	def exists(self):
 		fp=self.filePath()
 		if fp and not os.path.exists(fp):
@@ -203,7 +216,7 @@ class Resource:
 
 	def forcedLabel(self):
 		if not self.label:
-			return urllib.parse.unquote(self.path.split('/')[-2])
+			return self.fileName()
 		else:
 			return self.label
 

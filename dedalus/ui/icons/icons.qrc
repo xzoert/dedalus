@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="dedalus">
+    <file>loader.gif</file>
+    <file>addnew.svg</file>
     <file>assigned.svg</file>
     <file>dedalus.svg</file>
     <file>delete.svg</file>

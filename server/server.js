@@ -63,11 +63,13 @@ http.createServer( (req, res) => {
 		res.writeHead(500);
 		res.end();
 	} else {
-		restHandler.handleRequest(req,res, (err,data) => {
-			if (handleError(res,err,data)) return;
-			res.writeHead(200, {'Content-Type': 'application/json'});
-			res.end(JSON.stringify(data));
-		});
+		//setTimeout(function() {
+			restHandler.handleRequest(req,res, (err,data) => {
+				if (handleError(res,err,data)) return;
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.end(JSON.stringify(data));
+			});
+		//},2000);
 	}
 }).listen(port);
 

@@ -1,4 +1,5 @@
 from .Tag import Tag
+from .Resource import Resource
 
 class ResourceCollection:
 
@@ -35,7 +36,10 @@ class ResourceCollection:
 			self.client.saveResources(tosave)
 
 	def addResource(self,url):
-		res=self.client.getResource(url)
+		if isinstance(url,Resource):
+			res=url
+		else:
+			res=self.client.getResource(url)
 		self.resources[res.path]=res
 		tt=res.getTaggings()
 		for t in tt:
@@ -90,6 +94,13 @@ class ResourceCollection:
 				t.name=newTag.name
 				t.key=newTag.key
 				
+			
+	def isAssignedToAll(self,tag):
+		return self.getOccurrences(tag)==len(self.resources)
+		
+	def isUnassignedToAll(self,tag):
+		return self.getOccurrences(tag)==0
+	
 			
 	def getOccurrences(self,tag):
 		if tag.key not in self.tagMeta:

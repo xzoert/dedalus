@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="34.880946"
-     inkscape:cy="110.91734"
+     inkscape:zoom="2.8"
+     inkscape:cx="110.18425"
+     inkscape:cy="28.98034"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,96 +55,96 @@
      id="layer1"
      transform="translate(0,-952.36223)">
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#3f413f;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#3f413f;stroke-width:14.89999962;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4286-4"
        sodipodi:type="arc"
-       sodipodi:cx="467.02689"
-       sodipodi:cy="-889.66003"
+       sodipodi:cx="636.93384"
+       sodipodi:cy="775.77588"
        sodipodi:rx="29.401484"
        sodipodi:ry="29.401484"
        sodipodi:start="0"
        sodipodi:end="2.0943951"
-       d="m 496.42837,-889.66003 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40149,0"
+       d="m 666.33532,775.77588 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
        sodipodi:open="true"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754"
-       transform="matrix(-0.86094885,0.50869153,-0.50869153,-0.86094885,0,0)" />
+       transform="matrix(0.80366121,0.5950871,-0.5950871,0.80366121,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#3f413f;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 34.969093,1008.401 -4.78009,18.5859 -18.58591,-4.7801 0,0"
+       style="fill:none;fill-rule:evenodd;stroke:#3f413f;stroke-width:14.89999962;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 60.7522,1014.8786 18.980887,-2.8303 2.830338,18.9809 0,0"
        id="path4288-3"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754" />
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#3f413f;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#3f413f;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4286-5-0"
        sodipodi:type="arc"
-       sodipodi:cx="-467.1622"
-       sodipodi:cy="889.42621"
+       sodipodi:cx="-637.3562"
+       sodipodi:cy="-775.79718"
        sodipodi:rx="29.401484"
        sodipodi:ry="29.401484"
        sodipodi:start="0"
        sodipodi:end="2.0943951"
-       d="m -437.76072,889.42621 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
+       d="m -607.95472,-775.79718 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
        sodipodi:open="true"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754"
-       transform="matrix(0.86094885,-0.50869153,0.50869153,0.86094885,0,0)" />
+       transform="matrix(-0.80366121,-0.5950871,0.5950871,-0.80366121,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#3f413f;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 65.748303,998.5159 4.7801,-18.5859 18.585895,4.7801 0,0"
+       style="fill:none;fill-rule:evenodd;stroke:#3f413f;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 40.024504,990.37349 -18.980892,2.83033 -2.830331,-18.98089 0,0"
        id="path4288-5-5"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754" />
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#16b616;stroke-width:10.1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4286"
        sodipodi:type="arc"
-       sodipodi:cx="468.74841"
-       sodipodi:cy="-888.64185"
+       sodipodi:cx="637.05402"
+       sodipodi:cy="775.81921"
        sodipodi:rx="29.401484"
        sodipodi:ry="29.401484"
        sodipodi:start="0"
        sodipodi:end="2.0943951"
-       d="m 498.1499,-888.64185 a 29.401484,29.401484 0 0 1 -14.70075,25.46244 29.401484,29.401484 0 0 1 -29.40148,0"
+       d="m 666.4555,775.81921 a 29.401484,29.401484 0 0 1 -14.70074,25.46244 29.401484,29.401484 0 0 1 -29.40149,0"
        sodipodi:open="true"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754"
-       transform="matrix(-0.86094885,0.50869153,-0.50869153,-0.86094885,0,0)" />
+       transform="matrix(0.80366121,0.5950871,-0.5950871,0.80366121,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 32.969093,1008.401 -4.78009,18.5859 -18.5859103,-4.7801 0,0"
+       style="fill:none;fill-rule:evenodd;stroke:#16b616;stroke-width:10.1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 60.823814,1014.9846 18.980888,-2.8304 2.830337,18.9809 0,0"
        id="path4288"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754" />
     <path
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ddcf2b;stroke-width:10.1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4286-5"
        sodipodi:type="arc"
-       sodipodi:cx="-468.88373"
-       sodipodi:cy="888.40802"
+       sodipodi:cx="-637.18933"
+       sodipodi:cy="-776.05304"
        sodipodi:rx="29.401484"
        sodipodi:ry="29.401484"
        sodipodi:start="0"
        sodipodi:end="2.0943951"
-       d="m -439.48224,888.40802 a 29.401484,29.401484 0 0 1 -14.70075,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
+       d="m -607.78785,-776.05304 a 29.401484,29.401484 0 0 1 -14.70074,25.46243 29.401484,29.401484 0 0 1 -29.40148,0"
        sodipodi:open="true"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"
        inkscape:export-xdpi="28.926754"
        inkscape:export-ydpi="28.926754"
-       transform="matrix(0.86094885,-0.50869153,0.50869153,0.86094885,0,0)" />
+       transform="matrix(-0.80366121,-0.5950871,0.5950871,-0.80366121,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#16b616;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 63.748303,998.5159 4.7801,-18.5859 18.585895,4.7801 0,0"
+       style="fill:none;fill-rule:evenodd;stroke:#ddcf2b;stroke-width:10.1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 39.738975,990.47936 -18.980892,2.83033 -2.830331,-18.98089 0,0"
        id="path4288-5"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/xzoert/Documents/dedalus/navigator-qt/refresh.png"

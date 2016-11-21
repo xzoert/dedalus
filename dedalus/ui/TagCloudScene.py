@@ -16,13 +16,16 @@ class TagCloudScene(QGraphicsScene):
 		self.colored=False
 	
 	
+	def setColored(self,v):
+		self.colored=v
+	
 	def mousePressEvent(self,e):
 		i=self.itemAt(e.scenePos())
 		if i:
 			if e.modifiers()==Qt.CTRL:
-				v=-1
+				v=False
 			else:
-				v=1
+				v=True
 			self.tagClicked.emit(i.toPlainText(),v)
 
 	def resetTagCloud(self,tagCloud,resCount=None):
@@ -53,7 +56,7 @@ class TagCloudScene(QGraphicsScene):
 			text=QGraphicsTextItem()
 			text.setPlainText(tag.name)
 			rw=tag.normWeight()
-			font=QFont('Sans',8.0+10.0*rw)
+			font=QFont('Sans',8.0+6.0*rw)
 			text.setFont(font)
 			text.setCursor(Qt.PointingHandCursor)
 			if self.showWeight:
@@ -82,7 +85,7 @@ class TagCloudScene(QGraphicsScene):
 		
 		
 		
-		refwidth=sqrt((area*1.0)/ratio)
+		refwidth=sqrt((area*1.2)/ratio)
 		
 		top=0.0
 		left=0.0
@@ -93,10 +96,10 @@ class TagCloudScene(QGraphicsScene):
 			if left+rect.width()>refwidth:
 				# new line
 				for item in lineitems:
-					item['i'].setPos(item['l'],top+(maxh-item['h'])/2.0)
+					item['i'].setPos(item['l'],top+(maxh-item['h'])/1.5)
 					self.addItem(item['i'])
 				lineitems=[]
-				top=top+maxh*0.7
+				top=top+maxh*0.9
 				maxh=0.0
 				left=0.0
 			lineitems.append({'i':text,'l':left,'h':rect.height()})

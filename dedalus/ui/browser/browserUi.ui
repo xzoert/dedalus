@@ -45,7 +45,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="searchBox"/>
+           <widget class="TagEntry" name="searchBox"/>
           </item>
           <item>
            <widget class="QPushButton" name="homeButton">
@@ -80,7 +80,7 @@
         </widget>
        </item>
        <item>
-        <widget class="TagCloudView" name="graphicsView">
+        <widget class="TagCloudView" name="tagCloudView">
          <property name="maximumSize">
           <size>
            <width>300</width>
@@ -89,6 +89,12 @@
          </property>
          <property name="mouseTracking">
           <bool>false</bool>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
          </property>
         </widget>
        </item>
@@ -101,20 +107,113 @@
        <property name="margin">
         <number>0</number>
        </property>
-       <item row="1" column="0">
-        <widget class="QTableWidget" name="resourceTable">
-         <property name="styleSheet">
-          <string notr="true"/>
+       <item row="2" column="0">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="alternatingRowColors">
-          <bool>false</bool>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
-         <attribute name="horizontalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
-         <attribute name="verticalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="margin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QWidget" name="widget_6" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="margin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="taggerButton">
+               <property name="minimumSize">
+                <size>
+                 <width>36</width>
+                 <height>36</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../icons/icons.qrc">
+                 <normaloff>:/dedalus/tagger.svg</normaloff>:/dedalus/tagger.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="directoryButton">
+               <property name="minimumSize">
+                <size>
+                 <width>36</width>
+                 <height>36</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Open parent directory</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../icons/icons.qrc">
+                 <normaloff>:/dedalus/directory.svg</normaloff>:/dedalus/directory.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>24</width>
+                 <height>24</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="deleteButton">
+               <property name="minimumSize">
+                <size>
+                 <width>36</width>
+                 <height>36</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../icons/icons.qrc">
+                 <normaloff>:/dedalus/delete.svg</normaloff>:/dedalus/delete.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item row="0" column="0">
@@ -144,6 +243,9 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Refresh</string>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -153,14 +255,17 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>31</width>
-              <height>20</height>
+              <width>24</width>
+              <height>24</height>
              </size>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTableView" name="resourceTable"/>
        </item>
       </layout>
      </widget>
@@ -184,6 +289,11 @@
    <class>TagCloudView</class>
    <extends>QGraphicsView</extends>
    <header>dedalus/ui/TagCloudView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TagEntry</class>
+   <extends>QLineEdit</extends>
+   <header>dedalus/ui/TagEntry.h</header>
   </customwidget>
  </customwidgets>
  <resources>

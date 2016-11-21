@@ -21,6 +21,8 @@ class TagCloudView(QGraphicsView):
 	def routeTagClicked(self,tag,v):
 		self.tagClicked.emit(tag,v)
 
+	def setColored(self,v):
+		self.scene.setColored(v)
 
 	def resetTagCloud(self,tagCloud,resNum=None):
 		self.scene.resetTagCloud(tagCloud,resNum)

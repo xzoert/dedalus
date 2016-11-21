@@ -31,11 +31,11 @@ class TaggerTableModel(QAbstractTableModel):
 		self.res=None
 		self.indexToEdit=None
 		self.view.clicked.connect(self.itemClicked)
+		self.view.setSelectionMode(QAbstractItemView.NoSelection);
 		
 	
 	
 	def itemClicked(self,index):
-		self.view.selectionModel().select(index, QItemSelectionModel.Deselect)
 		if index.column()==self.COL_STATE:
 			tags=self.collection.getTags()
 			if index.row()<len(tags):
@@ -61,7 +61,6 @@ class TaggerTableModel(QAbstractTableModel):
 				else:
 					self.collection.unassignToAll(tag)
 			self.refresh()
-			self.view.selectionModel().select(QModelIndex(), QItemSelectionModel.Clear)
 			
 	
 	
@@ -162,25 +161,30 @@ class TaggerTableModel(QAbstractTableModel):
 				return 'From: '+tagging.inheritedFrom
 		elif col==self.COL_ALL:
 			if role == Qt.DisplayRole:
-				tags=self.collection.getTags()
 				if col>=len(tags): 
 					return ''
 				else: 
-					tagging=self.res.getTagging(tag)
 					if tagging.state==Tag.ASSIGNED:
-						if self.collection.getOccurrences(tag)==self.collection.getResourceCount():
+						isAll=self.collection.isAssignedToAll(tag)
+						if isAll==True:
 							return '*'
-						else:
+						elif isAll==False:
 							return 'TO\nALL'
+						else:
+							return '...'
 					else:
-						if self.collection.getOccurrences(tag)==0:
+						isAll=self.collection.isUnassignedToAll(tag)
+						if isAll==True:
 							return '*'
-						else:
+						elif isAll==False:
 							return 'TO\nALL'
+						else:
+							return '...'
 			elif role==Qt.TextAlignmentRole:
 				return Qt.AlignCenter
 			elif role == Qt.FontRole: 
 				return self.AllFont
+					
 
 
 	def editLastRow(self):

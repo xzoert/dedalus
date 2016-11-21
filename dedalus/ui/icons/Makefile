@@ -8,7 +8,8 @@ ICONS		=	assigned.svg  \
 				tagger.svg  \
 				typedir.svg  \
 				typefile.svg  \
-				typeweb.svg
+				typeweb.svg \
+				loader.gif
 
 RCC			=	pyside-rcc -py3 
 
