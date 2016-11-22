@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Dedalus Borowser
+Comment=Find your files and web pages by tag.
+Exec=/usr/bin/dedalus-browser
+Icon=/usr/share/icons/dedalus.svg
+Terminal=false
+Type=Application
+Categories=Utility;Application;
+
