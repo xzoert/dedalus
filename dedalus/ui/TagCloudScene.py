@@ -18,7 +18,11 @@ class TagCloudScene(QGraphicsScene):
 	
 	def setColored(self,v):
 		self.colored=v
-	
+
+	def setShowWeight(self,v):
+		self.showWeight=v
+
+
 	def mousePressEvent(self,e):
 		i=self.itemAt(e.scenePos())
 		if i:

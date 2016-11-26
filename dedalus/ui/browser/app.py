@@ -30,6 +30,7 @@ class AppMainWindow(ApplicationWindow):
 	def init(self):
 		self.ui.tagCloudView.setColored(True)
 		self.ui.tagCloudView.setMaxScale(1.2)
+		self.ui.tagCloudView.setShowWeight(True)
 		self.ui.tagCloudView.tagClicked.connect(self.tagClicked)
 		
 		

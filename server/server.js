@@ -1,3 +1,4 @@
+const path=require('path');
 var http = require("http");
 var Tagman=require('tagman');
 const fs=require('fs');
@@ -14,6 +15,17 @@ process.argv.forEach(function (val, index, array) {
 	if (val=='-p' || val=='--port') port=array[index+1];
 	if (val=='-d' || val=='--db' || val=='--database') database=array[index+1]
 });
+
+
+function getUserHome() {
+  return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+}
+
+
+if (!database) {
+	dbdir=path.resolve(getUserHome(),'.dedalus');
+	database=path.resolve(dbdir,'db.sql');
+}
 
 function handleError(res,err,data) {
 	if (err) {

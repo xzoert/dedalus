@@ -23,6 +23,9 @@ class TagCloudView(QGraphicsView):
 
 	def setColored(self,v):
 		self.scene.setColored(v)
+		
+	def setShowWeight(self,v):
+		self.scene.setShowWeight(v)
 
 	def resetTagCloud(self,tagCloud,resNum=None):
 		self.scene.resetTagCloud(tagCloud,resNum)
